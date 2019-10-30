@@ -5,7 +5,7 @@ class Solution(object):
         :type heights: List[int]
         :rtype: int
         """
-
+        # 递增栈
         stack = []
         heights = [0] + heights + [0]
         area = 0
@@ -22,6 +22,7 @@ class Solution(object):
 # leetcode 739
 class Solution(object):
     def dailyTemperatures(self, T):
+        # 递减栈
         stack = []
         res = [0] * len(T)
         for i, v in enumerate(T):
