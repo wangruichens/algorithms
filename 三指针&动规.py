@@ -23,3 +23,22 @@ class Solution(object):
 
 
 Solution().nthUglyNumber(10)
+
+
+# leetcode 1262
+class Solution(object):
+    def maxSumDivThree(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        dp = [0, -float('inf'), -float('inf')]
+        for i in nums:
+            dp2 = dp[::]
+            for j in range(3):
+                dp2[(i + j) % 3] = max(dp[(i + j) % 3], dp[j] + i)
+            dp = dp2
+        return dp[0]
+
+
+print(Solution().maxSumDivThree([3, 6, 5, 1, 8]))
