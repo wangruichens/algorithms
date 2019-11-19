@@ -1,5 +1,4 @@
 # leetcode 332
-# 欧拉回路： 删除一个结点后，仍是欧拉回路
 class Solution(object):
     def findItinerary(self, tickets):
         """
@@ -19,3 +18,6 @@ class Solution(object):
 
         dfs("JFK")
         return res[::-1]
+
+
+print(Solution().findItinerary([["JFK", "SFO"], ["JFK", "ATL"], ["SFO", "ATL"], ["ATL", "JFK"], ["ATL", "SFO"]]))
