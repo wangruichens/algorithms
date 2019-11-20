@@ -16,3 +16,16 @@ class Solution(object):
                 for k in range(i + 1, j):
                     dp[i][j] = max(dp[i][j], nums[i] * nums[k] * nums[j] + dp[i][k] + dp[k][j])
         return dp[0][-1]
+
+
+# leetcode 390
+class Solution(object):
+    def lastRemaining(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        if n == 1:
+            return 1
+        else:
+            return 2 * (n / 2 + 1 - self.lastRemaining(n / 2))
