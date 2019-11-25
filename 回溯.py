@@ -30,3 +30,22 @@ class Solution(object):
             return res
 
         return helper(1, n)
+
+
+# leetcode 51  N-Queens
+class Solution:
+    def solveNQueens(self, n):
+        res = []
+        s = "." * n
+
+        def backtrack(i, tmp, col, z_diagonal, f_diagonal):
+            if i == n:
+                res.append(tmp)
+                return
+            for j in range(n):
+                if j not in col and i + j not in z_diagonal and i - j not in f_diagonal:
+                    backtrack(i + 1, tmp + [s[:j] + "Q" + s[j + 1:]], col | {j}, z_diagonal | {i + j},
+                              f_diagonal | {i - j})
+
+        backtrack(0, [], set(), set(), set())
+        return res
