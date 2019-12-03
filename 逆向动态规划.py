@@ -27,4 +27,4 @@ class Solution(object):
         return dp[0]
 
 
-print(Solution().calculateMinimumHP([[-2, -3, 3], [0, -2, 0], [-3, -3, -3]]))
+print(Solution().calculateMinimumHP([[1, -3, 3], [0, -2, 0], [-3, -3, -3]]))
