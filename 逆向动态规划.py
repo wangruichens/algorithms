@@ -3,6 +3,7 @@
 # 1.最优化原理（最优子结构性质）
 # 2.无后向性 (or 无前向性 or 单一方向性)
 # 3.子问题的重叠性
+# ** 有点类似于01背包问题，内层循环必须也是逆序的
 class Solution(object):
     def calculateMinimumHP(self, dungeon):
         """
