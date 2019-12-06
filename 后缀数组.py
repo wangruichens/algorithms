@@ -1,4 +1,6 @@
 # leetcode 1044 最长重复子串 （内存超限 MLE）
+# algo : https://wenku.baidu.com/view/228caa45b307e87101f696a8
+# height : https://sunznx.com/algorithm/suffix-tree-height-prove.html
 class Solution(object):
     def longestDupSubstring(self, S):
         """
