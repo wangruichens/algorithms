@@ -35,3 +35,36 @@ class Solution:
 					board[i][j] = "O"
 				else:
 					board[i][j] = "X"
+
+# leetcode 547 朋友圈
+class Solution(object):
+	def findCircleNum(self, M):
+		"""
+        :type M: List[List[int]]
+        :rtype: int
+        """
+		if len(M) == 0:
+			return 0
+		row = len(M)
+		col = len(M[0])
+		p = [-1] * col
+
+		def find(parents, i):
+			if parents[i] == -1:
+				return i
+			return find(parents, parents[i])
+
+		def union(parents, x, y):
+			xp = find(parents, x)
+			yp = find(parents, y)
+			if xp != yp:
+				parents[xp] = yp
+
+		for j in range(row):
+			for i in range(col):
+				if M[i][j] == 1:
+					union(p, i, j)
+		return p.count(-1)
+
+
+Solution().findCircleNum([[1, 1, 0], [1, 1, 0], [0, 0, 1]])
