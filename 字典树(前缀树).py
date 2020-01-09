@@ -47,3 +47,39 @@ print(Solution().findWords([
     ['i', 'h', 'k', 'r'],
     ['i', 'f', 'l', 'v']
 ], ["oath", 'aa', 'oatt', "pea", "eat", "rain"]))
+
+
+# leetcode 472 连接词
+class Solution:
+    def findAllConcatenatedWordsInADict(self, words):
+
+        def is_res(w, trie):
+            if len(w) == 0:
+                return True
+            t = trie
+            for i, v in enumerate(w):
+                t = t.get(v)
+                if not t:
+                    return False
+                elif t.get('end') and is_res(w[i + 1:], trie):
+                    return True
+            return False
+
+        words.sort(key = lambda x: len(x))
+        res = []
+        trie = {}
+        for w in words:
+            if len(w) == 0:
+                continue
+            if is_res(w, trie):
+                res.append(w)
+            else:
+                t = trie
+                for k in w:
+                    t = t.setdefault(k, {})
+                t['end'] = True
+        return res
+
+
+print(Solution().findAllConcatenatedWordsInADict(
+    ["cat", "cats", "catsdogcats", "dog", "dogcatsdog", "hippopotamuses", "rat", "ratcatdogcat"]))
