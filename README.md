@@ -1,2 +1,5 @@
-# algorithms
-leetcode 算法题类型梳理
+# Algorithms
+![image](twodog.jpg)
+
+leetcode 算法题梳理
+
